@@ -37,10 +37,12 @@ namespace Lizandra.Banco
                 }
 
                 else list.Add(new Employee("Liz", 25, 50.5m));
+
+                Console.WriteLine("Teste");
             }
 
             foreach (var items in list)
-            {
+            { 
                 Console.WriteLine(items.ToString());
             }
 
