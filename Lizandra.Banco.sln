@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lizandra", "Lizandra\Lizandra.csproj", "{8881B2DF-5560-4895-995C-57818AF02062}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lizandra.Interfaces", "Lizandra.Interfaces\Lizandra.Interfaces.csproj", "{E0EE1EE4-E1AC-4E16-9E87-42D9267E234F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lizandra.ConsoleApp", "Lizandra.ConsoleApp\Lizandra.ConsoleApp.csproj", "{4E3DFF39-0BE1-41A4-9BC1-4DBF73D33881}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{8881B2DF-5560-4895-995C-57818AF02062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8881B2DF-5560-4895-995C-57818AF02062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8881B2DF-5560-4895-995C-57818AF02062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0EE1EE4-E1AC-4E16-9E87-42D9267E234F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0EE1EE4-E1AC-4E16-9E87-42D9267E234F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0EE1EE4-E1AC-4E16-9E87-42D9267E234F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0EE1EE4-E1AC-4E16-9E87-42D9267E234F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3DFF39-0BE1-41A4-9BC1-4DBF73D33881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3DFF39-0BE1-41A4-9BC1-4DBF73D33881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3DFF39-0BE1-41A4-9BC1-4DBF73D33881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3DFF39-0BE1-41A4-9BC1-4DBF73D33881}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

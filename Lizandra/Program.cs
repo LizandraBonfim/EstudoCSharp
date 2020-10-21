@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using Lizandra.Banco.Entities;
 using Lizandra.Banco.Entities.Enums;
 
@@ -9,23 +11,42 @@ namespace Lizandra.Banco
     {
         static void Main(string[] args)
         {
-            List<Produto> list = new List<Produto>();
+            Console.WriteLine("inicio");
 
-            Produto prod = new Produto("IPhone", 5.845m);
-            ProdutoImportado impot = new ProdutoImportado("Arroz" , 43.56m , 24.2m);
-            ProdutoUsado usado = new ProdutoUsado("Note", 245.51m, DateTime.Parse("14/02/2002"));
-            
-            list.Add(prod);
-            list.Add(impot);
-            list.Add(usado);
-            
+            string entrada = @"/home/werter/Documentos/temp/text.csv";
 
-            foreach (var items in list)
-            { 
-                Console.WriteLine(items.PrecoEtiqueta());
+            try
+            {
+                string[] list = File.ReadAllLines(entrada);
+                string pasta = Path.GetDirectoryName(entrada);
+                string pastaSaida = pasta + @"/out";
+                string arquivoSaida = pastaSaida + @"/saida.csv";
+
+                Path.Combine(pasta, pastaSaida, "saida.csv");
+
+                Directory.CreateDirectory(pastaSaida);
+
+                using (StreamWriter sw = File.AppendText(arquivoSaida))
+                {
+                    foreach (var item in list)
+                    {
+                        string[] pro = item.Split(',');
+
+                        string nome = pro[0];
+                        decimal preco = decimal.Parse(pro[1]);
+                        int qtd = int.Parse(pro[2]);
+
+                        ProdutoBuilder prod = new ProdutoBuilder(nome, preco, qtd);
+
+                        sw.WriteLine(prod.Nome + ", " + prod.Total());
+                    }
+                }
+
             }
-
-            Console.ReadKey();
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }
