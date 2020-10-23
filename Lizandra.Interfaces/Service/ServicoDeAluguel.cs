@@ -1,3 +1,4 @@
+using System;
 using Lizandra.Interfaces.Entities;
 
 namespace Lizandra.Interfaces
@@ -15,7 +16,19 @@ namespace Lizandra.Interfaces
 
         public void ProcessInvoice(CarRental carRental)
         {
-            
+            TimeSpan duration = carRental.Finish.Subtract(carRental.Start);
+
+            decimal total = 0m;
+            if (duration.TotalHours <= 12)
+            {
+                total = PrecoPorHora * (decimal) Math.Ceiling(duration.TotalHours);
+            }
+            else
+            {
+                total = PrecoPorDia * (decimal) Math.Ceiling(duration.TotalDays);
+            }
+
+            Console.WriteLine($"Total {total}");
         }
     }
 }
