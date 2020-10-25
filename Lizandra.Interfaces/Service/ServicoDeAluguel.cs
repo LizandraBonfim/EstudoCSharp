@@ -8,10 +8,12 @@ namespace Lizandra.Interfaces
         public decimal PrecoPorHora { get; private set; }
         public decimal PrecoPorDia { get; private set; }
 
-        public ServicoDeAluguel(decimal precoPorHora, decimal precoPorDia)
+        private ITaxService _taxService;
+        public ServicoDeAluguel(decimal precoPorHora, decimal precoPorDia, ITaxService taxService)
         {
             PrecoPorHora = precoPorHora;
             PrecoPorDia = precoPorDia;
+            _taxService = taxService;
         }
 
         public void ProcessInvoice(CarRental carRental)
@@ -27,6 +29,9 @@ namespace Lizandra.Interfaces
             {
                 total = PrecoPorDia * (decimal) Math.Ceiling(duration.TotalDays);
             }
+
+            decimal tax = _taxService.Tax(total);
+            carRental.Invoice = new Invoice(total, tax);
 
             Console.WriteLine($"Total {total}");
         }
